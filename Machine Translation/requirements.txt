@@ -1,5 +1,7 @@
 transformers
 torch
+flask
 gradio
 sentencepiece
 sacremoses
+

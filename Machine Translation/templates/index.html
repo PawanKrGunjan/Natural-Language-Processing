@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Translation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result-box {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 10px;
+            display: none;
+        }
+        .loading {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Machine Translation</h1>
+    <form id="translation-form">
+        <textarea id="text-to-translate" rows="4" cols="50" placeholder="Enter text to translate"></textarea><br>
+        <input type="radio" name="direction" value="English to Hindi" checked> English to Hindi<br>
+        <input type="radio" name="direction" value="Hindi to English"> Hindi to English<br>
+        <button type="button" onclick="translateText()">Translate</button>
+    </form>
+    <h2>Translation Process</h2>
+    <div id="process-box" class="result-box">Processing...</div>
+    <h2>Translated Text</h2>
+    <div id="translated-text" class="result-box"></div>
+
+    <script>
+        async function translateText() {
+            const text = document.getElementById('text-to-translate').value;
+            const direction = document.querySelector('input[name="direction"]:checked').value;
+
+            document.getElementById('process-box').style.display = 'block';
+            document.getElementById('translated-text').style.display = 'none';
+
+            const response = await fetch('/translate', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ text: text, direction: direction })
+            });
+
+            const result = await response.json();
+            document.getElementById('translated-text').innerText = result.translated_text;
+            document.getElementById('translated-text').style.display = 'block';
+            document.getElementById('process-box').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
