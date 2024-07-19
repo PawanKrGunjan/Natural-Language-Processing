@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retrieval Augmented Generation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Retrieval Augmented Generation</h1>
+        
+        <div class="box">
+            <!-- File upload section -->
+            <div class="upload-section">
+                <label for="file-input">Choose files:</label>
+                <input type="file" id="file-input" multiple>
+                <button id="upload-btn">Upload</button>
+            </div>
+
+            <!-- Status box -->
+            <div id="status-box">
+                <h3>Status</h3>
+                <div id="status-messages"></div>
+            </div>
+        </div>
+
+        <div class="box">
+            <!-- Query input box -->
+            <div class="query-section">
+                <label for="query-input">Ask your query:</label>
+                <input type="text" id="query-input">
+                <button id="submit-btn">Submit</button>
+            </div>
+
+            <!-- Answer section -->
+            <div class="answer-section">
+                <div id="answer-box">
+                    <h3>Answer</h3>
+                    <p id="answer-content"></p>
+                </div>
+            </div>
+
+            <!-- Context box -->
+            <div id="context-box">
+                <h3>Context</h3>
+                <div id="context-content"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
