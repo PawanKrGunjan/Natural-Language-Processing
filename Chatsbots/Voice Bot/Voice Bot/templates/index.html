@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script defer src="{{ url_for('static', filename='js/script.js') }}"></script>
+</head>
+<body>
+    <h1>Voice Assistant</h1>
+    <div class="container">
+        <div class="user-side">
+            <div class="icon" id="microphone">
+                <img src="{{ url_for('static', filename='images/microphone.png') }}" alt="Microphone">
+            </div>
+            <div class="box">
+                <h2>User said:</h2>
+                <p id="userText"></p>
+            </div>
+        </div>
+        <div class="response-side">
+            <div class="icon" id="audio-container">
+                <audio id="response-audio" controls></audio>
+            </div>
+            <div class="box">
+                <h2>Chatbot response:</h2>
+                <p id="responseText"></p>
+            </div>
+        </div>
+    </div>
+    <div id="status"></div>
+</body>
+</html>
