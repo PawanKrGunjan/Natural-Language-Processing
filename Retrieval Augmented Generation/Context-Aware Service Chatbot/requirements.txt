@@ -1,0 +1,9 @@
+language_tool_python
+beautifulsoup4
+textblob
+langchain_community
+pytesseract
+pyspellchecker
+spacy
+langchain-openai
+python-docx
