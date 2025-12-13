@@ -1,0 +1,17 @@
+torch
+SpeechRecognition
+gTTS
+playsound
+langchain-core
+langchain-groq
+langchain-community
+ipython
+transformers
+datasets
+pydub
+tf-keras
+soundfile
+sentencepiece
+llama-cpp-python
+librosa
+pygame
